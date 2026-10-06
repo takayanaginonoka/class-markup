@@ -1,0 +1,198 @@
+/* ----- 共通部分 ----- */
+:root {
+    --color-common: #123D88;
+    --color-bg: #F7FAFF;
+    --color-white: #FFFFFF;
+    --color-main: #256BE6;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+section {
+    background-color: var(--color-bg);
+    padding: 120px 0;
+}
+
+.container {
+    width: 83%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn,
+.main-btn {
+    display: block;
+    width: fit-content;
+    color: var(--color-white);
+    background-color: var(--color-main);
+    padding: 20px 55px;
+    border-radius: 40px;
+    margin: 60px 0 100px;
+    transition: .3s;
+}
+
+.btn:hover,
+.main-btn:hover {
+    opacity: .8;
+}
+
+header {
+    background-color: var(--color-common);
+    padding: 40px;
+    position: fixed;
+    width: 100%;
+}
+
+header img {
+    display: block;
+    margin: auto;
+}
+
+/* ----- 共通部分終わり ----- */
+
+/* ----- main ----- */
+/* ----- main-visual ----- */
+.main-visual {
+    background: url(images/bg_mainvisual.png) center center / cover;
+    text-align: center;
+    padding: 280px 0 160px;
+}
+
+.main-visual h2,
+.main-visual {
+    color: var(--color-white);
+}
+
+.main-visual p {
+    margin-bottom: 60px;
+}
+
+.main-btn {
+    background-color: #F87624;
+    margin-inline: auto;
+    margin-bottom: 0;
+}
+
+/* ----- what ----- */
+.what p {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.service {
+    background-color: var(--color-white);
+    width: 360px;
+    height: 260px;
+    margin-inline: auto;
+    padding: 60px;
+    margin-bottom: 60px;
+}
+
+.service img {
+    display: block;
+    margin-inline: auto;
+    margin-bottom: 25px;
+}
+
+/* ----- online ----- */
+.online {
+    background-color: var(--color-white);
+}
+
+.online h2,
+.our h2 {
+    text-align: left;
+}
+
+.online h2::before,
+.our h2::before {
+    content: 'ONLINE PAYMENT';
+    color: var(--color-main);
+    font-size: 14px;
+    display: block;
+    font-weight: lighter;
+    letter-spacing: 0.28px;
+}
+
+.online p {
+    margin-bottom: 40px;
+}
+
+.our h2::before {
+    content: 'OUR FEATURES';
+}
+
+.point h3 {
+    text-align: left;
+    margin: 40px 0 20px;
+}
+
+.points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px 40px;
+}
+
+/* ----- footer ----- */
+footer {
+    background-color: var(--color-common);
+    color: var(--color-white);
+    text-align: right;
+    font-size: 15px;
+}
+
+.copyright {
+    padding: 80px 0 50px;
+}
+
+/* ----- pc版 ----- */
+@media (width > 700px) {
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 90px;
+        align-items: center;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+    }
+
+    .service {
+        margin: 0;
+    }
+
+    .online .grid-2 div {
+        order: 2;
+    }
+
+    .online .btn {
+        margin-bottom: 0;
+    }
+}
