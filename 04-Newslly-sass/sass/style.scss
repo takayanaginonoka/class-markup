@@ -126,6 +126,10 @@ body {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+
+    &--info {
+        background-color: $color-main;
+    }
 }
 
 /* index.html
@@ -185,10 +189,6 @@ body {
     .post__title {
         padding-bottom: 10px;
         border-bottom: 1px solid #ddd;
-    }
-
-    .btn {
-        background-color: $color-main;
     }
 
 }

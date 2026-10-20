@@ -90,6 +90,9 @@ body img {
   text-align: center;
   text-transform: uppercase;
 }
+.btn--info {
+  background-color: #202124;
+}
 
 /* index.html
 ------------------------------ */
@@ -160,9 +163,6 @@ body img {
 .posts .post__title {
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
-}
-.posts .btn {
-  background-color: #202124;
 }
 
 .discovery {
