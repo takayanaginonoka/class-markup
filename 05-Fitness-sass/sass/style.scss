@@ -1,0 +1,227 @@
+@use 'sass:math';
+
+$color-main: #5EB6E1;
+$color-accent: #FF1D6A;
+$color-bg: #292F39;
+$color-text: #9E9E9E;
+
+$font-family-title: 'Times New Roman', Times, serif;
+$font-family-base: Helvetica, Arial, sans-serif;
+
+
+body {
+    font-family: $font-family-base;
+    font-size: 16px;
+    color: $color-text;
+    line-height: math.div(27, 16);
+    letter-spacing: #{math.div(20,1000)}em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+@mixin inner($mw: 1200px, $w: percentage(math.div(1200, 1488))) {
+    max-width: $mw;
+    width: $w;
+    margin-inline: auto;
+}
+
+@mixin title() {
+    font-family: $font-family-title;
+    font-size: 32px;
+    font-weight: bold;
+    color: $color-bg;
+}
+
+.btn {
+    display: block;
+    margin-top: 60px;
+    padding: 25px 60px;
+    background-color: $color-main;
+    color: #fff;
+    width: fit-content;
+    border-radius: 10px;
+
+    &--info {
+        background-color: $color-accent;
+        margin-inline: auto;
+    }
+}
+
+.intro {
+    &__title {
+        @include title();
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    &__title::after {
+        content: '';
+        display: block;
+        background-color: $color-main;
+        width: 120px;
+        height: 2px;
+        position: relative;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__text {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+}
+
+.point {
+    position: relative;
+
+    &__title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 30px;
+        opacity: .6;
+        text-align: center;
+        font-size: 24px;
+        background-color: $color-bg;
+        color: #fff;
+    }
+}
+
+.card {
+    img {
+        display: block;
+        margin-inline: auto;
+    }
+
+    &__title {
+        margin: 30px 0 20px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    &__text {
+        color: $color-accent;
+        text-align: center;
+    }
+}
+
+.header {
+    padding: 40px 0 100px;
+
+    &__inner {
+        @include inner();
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav ul {
+        display: flex;
+        column-gap: 30px;
+        color: $color-bg;
+    }
+}
+
+.footer {
+    padding: 60px 0;
+    background-color: $color-main;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__copyright {
+        text-align: center;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    small {
+        font-size: 12px;
+        color: #fff;
+    }
+}
+
+.welcome {
+    margin-bottom: 100px;
+
+    &__inner {
+        @include inner();
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 80px;
+    }
+
+    .intro__title,
+    .intro__text {
+        text-align: left;
+    }
+
+    .intro__title::after {
+        left: 50%;
+    }
+}
+
+.meet {
+    padding: 100px 0;
+    background-color: $color-bg;
+
+    .intro__title {
+        color: #fff;
+    }
+
+    color: #fff;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+    }
+}
+
+
+// about.html
+
+.clases {
+    padding: 100px 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    .intro__title {
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonials {
+    padding: 100px 0;
+    background-color: $color-bg;
+
+    &__inner {
+        @include inner();
+    }
+
+    .intro__title {
+        color: #fff;
+    }
+
+    color: #fff;
+
+
+}
