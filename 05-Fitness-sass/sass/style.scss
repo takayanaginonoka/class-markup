@@ -44,6 +44,11 @@ img {
     color: #fff;
     width: fit-content;
     border-radius: 10px;
+    transition: .3s;
+
+    &:hover {
+        opacity: .8;
+    }
 
     &--info {
         background-color: $color-accent;
@@ -55,7 +60,7 @@ img {
     &__title {
         @include title();
         margin-bottom: 60px;
-        text-align: center;
+        // text-align: center;
     }
 
     &__title::after {
@@ -64,31 +69,44 @@ img {
         background-color: $color-main;
         width: 120px;
         height: 2px;
-        position: relative;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-top: 20px;
+        // left: 50%;
+        // transform: translateX(-50%);
     }
 
     &__text {
         margin-bottom: 60px;
-        text-align: center;
+        // text-align: center;
+    }
+
+    &--center {
+
+        .intro__title,
+        .intro__text {
+            text-align: center;
+        }
+
+        .intro__title::after {
+            margin-inline: auto;
+        }
     }
 }
 
 .point {
-    position: relative;
+    &__img {
+        position: relative;
+    }
 
     &__title {
         position: absolute;
         bottom: 0;
         width: 100%;
         padding: 30px;
-        opacity: .6;
         text-align: center;
         font-size: 24px;
-        background-color: $color-bg;
+        background-color: rgba(0, 0, 0, .6);
         color: #fff;
+        z-index: 100;
     }
 }
 
@@ -119,10 +137,21 @@ img {
         justify-content: space-between;
     }
 
-    .nav ul {
-        display: flex;
-        column-gap: 30px;
-        color: $color-bg;
+    .g-nav {
+        &__list {
+            display: flex;
+            column-gap: 30px;
+            color: $color-bg;
+        }
+
+        &__item {
+            transition: .3s;
+        }
+
+        &__item:hover {
+            color: $color-main;
+        }
+
     }
 }
 

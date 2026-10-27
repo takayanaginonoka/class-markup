@@ -21,6 +21,10 @@ img {
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  opacity: 0.8;
 }
 .btn--info {
   background-color: #FF1D6A;
@@ -33,7 +37,6 @@ img {
   font-weight: bold;
   color: #292F39;
   margin-bottom: 60px;
-  text-align: center;
 }
 .intro__title::after {
   content: "";
@@ -41,17 +44,20 @@ img {
   background-color: #5EB6E1;
   width: 120px;
   height: 2px;
-  position: relative;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 20px;
 }
 .intro__text {
   margin-bottom: 60px;
+}
+.intro--center .intro__title,
+.intro--center .intro__text {
   text-align: center;
 }
+.intro--center .intro__title::after {
+  margin-inline: auto;
+}
 
-.point {
+.point__img {
   position: relative;
 }
 .point__title {
@@ -59,11 +65,11 @@ img {
   bottom: 0;
   width: 100%;
   padding: 30px;
-  opacity: 0.6;
   text-align: center;
   font-size: 24px;
-  background-color: #292F39;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
+  z-index: 100;
 }
 
 .card img {
@@ -90,11 +96,17 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.header .nav ul {
+.header .g-nav__list {
   display: flex;
   -moz-column-gap: 30px;
        column-gap: 30px;
   color: #292F39;
+}
+.header .g-nav__item {
+  transition: 0.3s;
+}
+.header .g-nav__item:hover {
+  color: #5EB6E1;
 }
 
 .footer {
