@@ -1,0 +1,195 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #244D4D;
+$color-base: #ffffff;
+$color-main: #244D4D;
+$color-bg: #F4F4F4;
+
+// Typography
+$font-size-base: 16;
+$font-family-gothic: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 640px,
+    // 大型スマホ〜小型タブレット
+    "md": 768px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1280px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1000px, $w: 90%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-size: rem(16);
+    font-family: $font-family-gothic;
+    line-height: 1.68;
+    color: $color-main;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.header {
+    @include inner();
+    padding: rem(45) 0 rem(45);
+    background-color: rgba($color: #fff, $alpha: 0.8);
+    position: fixed;
+    width: 100%;
+
+    &__logo {
+        font-weight: bold;
+        font-size: rem(26);
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .gnav {
+        &__list {
+            display: flex;
+            column-gap: rem(30);
+        }
+    }
+}
+
+.footer {
+    padding: rem(80) 0 rem(80);
+    background-color: $color-main;
+
+    &__inner {
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.intro {
+    &__title {
+        font-size: rem(48);
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: rem(25);
+    }
+
+    &__content {
+        text-align: center;
+        margin-bottom: rem(50);
+    }
+}
+
+.btn {
+    display: block;
+    width: fit-content;
+    padding: rem(18) rem(45);
+    background-color: $color-bg;
+    margin-inline: auto;
+    margin-top: rem(60);
+    border-radius: 10px;
+}
+
+.product {
+    background-color: $color-bg;
+    padding: rem(45);
+
+    &__title {
+        font-size: rem(24);
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: rem(15);
+    }
+
+    &__price {
+        text-align: center;
+        margin-bottom: rem(30);
+    }
+
+    img {
+        display: block;
+        margin-inline: auto;
+    }
+}
+
+// index.html
+.hero {
+    &__title {
+        font-size: rem(48);
+        font-weight: bold;
+        background-color: rgba($color: #fff, $alpha: 0.8);
+    }
+}
+
+.about {
+    @include inner();
+    padding: rem(96) 0 rem(96);
+
+}
+
+.products {
+    @include inner();
+    padding: rem(96) 0 rem(96);
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: rem(40);
+    }
+}
+
+.info {
+    @include inner();
+    padding: rem(96) 0 rem(96);
+}
