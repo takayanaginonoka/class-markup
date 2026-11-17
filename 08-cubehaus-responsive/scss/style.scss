@@ -1,0 +1,234 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #000;
+$color-base: #ffffff;
+$color-main: #E40065;
+$color-bg: #F4F4F4;
+$color-footer: #2F2F2F;
+$color-border: #707070;
+
+// Typography
+$font-size-base: 16;
+$font-family-gothic: "Yu Gothic", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 640px,
+    // 大型スマホ〜小型タブレット
+    "md": 700px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1280px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1000px, $w: 83%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-size: rem(14);
+    font-family: $font-family-gothic;
+    color: $color-text;
+    line-height: 2.42;
+    letter-spacing: ls(50);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.header {
+    padding: rem(48) 0 rem(48);
+    @include inner();
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        font-weight: bold;
+        font-size: rem(24);
+    }
+
+    .gnav {
+        &__list {
+            display: flex;
+            column-gap: rem(32);
+
+            .current {
+                color: $color-main;
+            }
+        }
+    }
+}
+
+.u-keepall {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.intro {
+    &__title {
+        font-size: rem(32);
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: rem(64);
+    }
+
+    &__title::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 2px;
+        margin: rem(24) auto 0;
+        background-color: $color-main;
+    }
+
+    &__content {
+        text-align: center;
+
+        p {
+            margin-top: rem(48);
+        }
+    }
+}
+
+.card {
+    &__title {
+        font-weight: bold;
+        font-size: rem(18);
+        margin-top: rem(24);
+    }
+}
+
+.hero {
+    &__img {
+
+        source,
+        img {
+            display: block;
+            margin-inline: auto;
+        }
+    }
+}
+
+.management {
+    padding: rem(124) 0 rem(124);
+
+    &__inner {
+        @include inner();
+    }
+}
+
+.products {
+    background-color: $color-bg;
+    padding: rem(124) 0 rem(124);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: rem(50);
+    }
+}
+
+.time {
+    padding: rem(124) 0 rem(124);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__scroll {
+        overflow-x: auto;
+        -webkit-overflrow-scrolling: touch;
+        padding-bottom: rem(24);
+    }
+
+    &__table {
+        width: 100%;
+        min-width: 700px;
+        border: 1px solid;
+        border-collapse: collapse;
+
+        th,
+        td {
+            border: 1px solid;
+            padding: rem(15) 0 rem(15);
+            white-space: nowrap;
+            text-align: center;
+            width: 320px;
+        }
+
+        thead th {
+            background-color: #EDEFF2;
+        }
+    }
+
+    @include mq() {
+        .time__note {
+            display: none;
+        }
+    }
+}
+
+.footer {
+    padding: rem(80) 0 rem(80);
+    background-color: $color-footer;
+
+    &__copyright {
+        color: white;
+        text-align: center;
+    }
+}

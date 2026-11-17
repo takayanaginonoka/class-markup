@@ -295,4 +295,126 @@ p {
   .menu__list {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
+}
+
+.pickup {
+  padding: 3.5rem 0 4rem;
+}
+@media (width >= 768px) {
+  .pickup {
+    padding: 4.5rem 0 5rem;
+  }
+}
+.pickup__inner {
+  max-width: 1200px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.schedule {
+  padding: 4rem 0;
+}
+@media (width >= 768px) {
+  .schedule {
+    padding: 5rem 0;
+  }
+}
+.schedule__inner {
+  max-width: 1200px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (width >= 1112px) {
+  .schedule__note {
+    display: none;
+  }
+}
+.schedule__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+.schedule__table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+.schedule__table th,
+.schedule__table td {
+  padding: 1rem 1.25rem;
+  border: 1px solid #dfd6c7;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  text-align: left;
+}
+.schedule__table thead th {
+  background-color: #2c4c3e;
+  color: #fff;
+  font-weight: bold;
+}
+.schedule__table tbody th {
+  background-color: #f2ece1;
+  color: #2c4c3e;
+  font-weight: bold;
+}
+
+.company {
+  padding: 3.5rem 0 4rem;
+}
+@media (width >= 768px) {
+  .company {
+    padding: 4.5rem 0 5rem;
+  }
+}
+.company__inner {
+  max-width: 1200px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.company {
+  /* --- [6-2 パターンB] カード型変形方式のテーブル --- */
+}
+.company__table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-top: 1px solid #dfd6c7;
+}
+.company__table tr,
+.company__table th,
+.company__table td {
+  display: block;
+  width: 100%;
+}
+.company__table th {
+  padding: 0.875rem 1rem 0.375rem;
+  background-color: #f2ece1;
+  color: #2c4c3e;
+  font-weight: bold;
+  text-align: left;
+}
+.company__table td {
+  padding: 0.625rem 1rem 1rem;
+  border-bottom: 1px solid #dfd6c7;
+}
+@media (width >= 768px) {
+  .company__table tr {
+    display: table-row;
+  }
+  .company__table th,
+  .company__table td {
+    display: table-cell;
+    width: auto;
+    padding: 1.125rem 1.5rem;
+    border-bottom: 1px solid #dfd6c7;
+    vertical-align: middle;
+  }
+  .company__table th {
+    width: 12.5rem;
+  }
 }/*# sourceMappingURL=style.css.map */

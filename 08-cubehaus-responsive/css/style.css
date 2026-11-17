@@ -1,0 +1,148 @@
+body {
+  font-size: 0.875rem;
+  font-family: "Yu Gothic", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #000;
+  line-height: 2.42;
+  letter-spacing: 0.05em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.header {
+  padding: 3rem 0 3rem;
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.header .gnav__list {
+  display: flex;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+.header .gnav__list .current {
+  color: #E40065;
+}
+
+.u-keepall {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.intro__title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.intro__title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  margin: 1.5rem auto 0;
+  background-color: #E40065;
+}
+.intro__content {
+  text-align: center;
+}
+.intro__content p {
+  margin-top: 3rem;
+}
+
+.card__title {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+}
+
+.hero__img source,
+.hero__img img {
+  display: block;
+  margin-inline: auto;
+}
+
+.management {
+  padding: 7.75rem 0 7.75rem;
+}
+.management__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.products {
+  background-color: #F4F4F4;
+  padding: 7.75rem 0 7.75rem;
+}
+.products__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.products__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3.125rem;
+}
+
+.time {
+  padding: 7.75rem 0 7.75rem;
+}
+.time__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.time__scroll {
+  overflow-x: auto;
+  -webkit-overflrow-scrolling: touch;
+  padding-bottom: 1.5rem;
+}
+.time__table {
+  width: 100%;
+  min-width: 700px;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+.time__table th,
+.time__table td {
+  border: 1px solid;
+  padding: 0.9375rem 0 0.9375rem;
+  white-space: nowrap;
+  text-align: center;
+  width: 320px;
+}
+.time__table thead th {
+  background-color: #EDEFF2;
+}
+@media (width >= 700px) {
+  .time .time__note {
+    display: none;
+  }
+}
+
+.footer {
+  padding: 5rem 0 5rem;
+  background-color: #2F2F2F;
+}
+.footer__copyright {
+  color: white;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
