@@ -86,10 +86,16 @@ img {
 }
 
 .card {
-  width: 15.625pxrem;
+  container-type: inline-size;
+}
+.card__inner {
   display: grid;
-  grid-template-columns: repeat(1, auto);
   gap: 1.25rem;
+}
+@container (width >=400px) {
+  .card__inner {
+    grid-template-columns: repeat(2, auto);
+  }
 }
 .card__pic {
   width: 100%;
@@ -105,12 +111,6 @@ img {
 .card__title {
   font-size: 1.5rem;
   font-weight: bold;
-}
-@container (width >=800px) {
-  .card {
-    grid-template-columns: repeat(2, auto);
-    gap: 1.25rem;
-  }
 }
 
 .product {
@@ -170,12 +170,8 @@ img {
 .about__list {
   container-type: inline-size;
   display: grid;
-  gap: 50px;
-}
-@media (width >= 740px) {
-  .about__list {
-    grid-template-columns: repeat(2, auto);
-  }
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 3.125rem;
 }
 
 .products {
