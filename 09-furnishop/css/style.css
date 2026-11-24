@@ -12,20 +12,21 @@ img {
 }
 
 .header {
-  max-width: 1000px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 2.8125rem 0 2.8125rem;
   background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
   width: 100%;
+  z-index: 999;
 }
 .header__logo {
   font-weight: bold;
   font-size: 1.625rem;
 }
 .header__inner {
+  max-width: 1000px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,6 +44,14 @@ img {
 .footer__inner {
   text-align: center;
   color: #fff;
+}
+.footer .sns {
+  position: fixed;
+  top: 37.5rem;
+  right: 3.75rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 1.875rem;
 }
 
 .intro__title {
@@ -65,11 +74,54 @@ img {
   margin-inline: auto;
   margin-top: 3.75rem;
   border-radius: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #244D4D;
+  color: #ffffff;
+}
+
+.current {
+  border-bottom: 1px solid #244D4D;
+}
+
+.card {
+  width: 15.625pxrem;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 1.25rem;
+}
+.card__pic {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.card__pic img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+@container (width >=800px) {
+  .card {
+    grid-template-columns: repeat(2, auto);
+    gap: 1.25rem;
+  }
 }
 
 .product {
   background-color: #F4F4F4;
   padding: 2.8125rem;
+  position: relative;
+}
+.product__cart {
+  position: absolute;
+  top: -15px;
+  right: 15px;
 }
 .product__title {
   font-size: 1.5rem;
@@ -86,10 +138,26 @@ img {
   margin-inline: auto;
 }
 
+.hero__container {
+  max-width: 1000px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero__inner {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-right: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4.0625rem 3.75rem;
+}
 .hero__title {
   font-size: 3rem;
   font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.8);
+}
+.hero {
+  background: url(../images/bg_hero.png) no-repeat center center/cover;
+  padding: 8.75rem 0 8.75rem;
 }
 
 .about {
@@ -99,6 +167,16 @@ img {
   margin-right: auto;
   padding: 6rem 0 6rem;
 }
+.about__list {
+  container-type: inline-size;
+  display: grid;
+  gap: 50px;
+}
+@media (width >= 740px) {
+  .about__list {
+    grid-template-columns: repeat(2, auto);
+  }
+}
 
 .products {
   max-width: 1000px;
@@ -106,6 +184,12 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 6rem 0 6rem;
+}
+.products__menu {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 3.125rem;
 }
 .products__list {
   display: grid;

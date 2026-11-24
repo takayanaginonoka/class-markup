@@ -19,7 +19,7 @@ $font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Minch
 $breakpoints: (
     "sm": 640px,
     // 大型スマホ〜小型タブレット
-    "md": 768px,
+    "md": 740px,
     // 一般的なタブレット
     "lg": 1024px,
     // ノートPC・デスクトップ
@@ -82,11 +82,11 @@ img {
 }
 
 .header {
-    @include inner();
     padding: rem(45) 0 rem(45);
     background-color: rgba($color: #fff, $alpha: 0.8);
     position: fixed;
     width: 100%;
+    z-index: 999;
 
     &__logo {
         font-weight: bold;
@@ -94,6 +94,7 @@ img {
     }
 
     &__inner {
+        @include inner();
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -114,6 +115,15 @@ img {
     &__inner {
         text-align: center;
         color: #fff;
+    }
+
+    .sns {
+        position: fixed;
+        top: rem(600);
+        right: rem(60);
+        display: grid;
+        grid-template-rows: 1fr;
+        gap: rem(30);
     }
 }
 
@@ -139,11 +149,57 @@ img {
     margin-inline: auto;
     margin-top: rem(60);
     border-radius: 10px;
+    transition: .3s;
+
+    &:hover {
+        background-color: $color-main;
+        color: $color-base;
+    }
+}
+
+.current {
+    border-bottom: 1px solid $color-main;
+}
+
+.card {
+    width: rem(250px);
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: rem(20);
+
+    &__pic {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        font-size: rem(24);
+        font-weight: bold;
+    }
+
+    @container (width >=800px) {
+        grid-template-columns: repeat(2, auto);
+        gap: rem(20);
+    }
 }
 
 .product {
     background-color: $color-bg;
     padding: rem(45);
+    position: relative;
+
+    &__cart {
+        position: absolute;
+        top: -15px;
+        right: 15px;
+    }
 
     &__title {
         font-size: rem(24);
@@ -165,22 +221,54 @@ img {
 
 // index.html
 .hero {
+    &__container {
+        @include inner();
+    }
+
+    &__inner {
+        background-color: rgba($color: #fff, $alpha: 0.8);
+        margin-right: auto;
+        width: fit-content;
+        padding: rem(65) rem(60);
+    }
+
     &__title {
         font-size: rem(48);
         font-weight: bold;
-        background-color: rgba($color: #fff, $alpha: 0.8);
     }
+
+    background: url(../images/bg_hero.png) no-repeat center center / cover;
+    padding: rem(140) 0 rem(140);
 }
 
 .about {
     @include inner();
     padding: rem(96) 0 rem(96);
 
+    &__list {
+        container-type: inline-size;
+        display: grid;
+        gap: 50px
+    }
+
+    @include mq() {
+        &__list {
+            grid-template-columns: repeat(2, auto);
+        }
+    }
+
 }
 
 .products {
     @include inner();
     padding: rem(96) 0 rem(96);
+
+    &__menu {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        margin-bottom: rem(50);
+    }
 
     &__list {
         display: grid;
